@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
 
 
-/* =========================================
+/* =====================================================
    RESET
-========================================= */
+===================================================== */
 
 * {
     margin: 0;
@@ -36,20 +36,20 @@ body {
 }
 
 
-/* =========================================
-   BACKGROUND DECORATION
-========================================= */
+/* =====================================================
+   BACKGROUND
+===================================================== */
 
 .sky {
     position: fixed;
 
     inset: 0;
 
+    z-index: 0;
+
     overflow: hidden;
 
     pointer-events: none;
-
-    z-index: 0;
 }
 
 
@@ -83,6 +83,8 @@ body {
 }
 
 
+/* Position stars */
+
 .star1 {
     top: 15%;
     left: 12%;
@@ -104,6 +106,8 @@ body {
     animation-delay: 3s;
 }
 
+
+/* Position hearts */
 
 .heart1 {
     top: 22%;
@@ -146,18 +150,18 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    CLOUDS
-========================================= */
+===================================================== */
 
 .cloud {
     position: fixed;
 
     left: -150px;
 
-    pointer-events: none;
-
     z-index: 0;
+
+    pointer-events: none;
 
     opacity: .6;
 
@@ -209,9 +213,9 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    MAIN
-========================================= */
+===================================================== */
 
 main {
     position: relative;
@@ -220,9 +224,9 @@ main {
 }
 
 
-/* =========================================
+/* =====================================================
    HERO
-========================================= */
+===================================================== */
 
 .hero {
     min-height: 100vh;
@@ -286,11 +290,12 @@ main {
 .hero h1 {
     max-width: 900px;
 
-    font-family: 'Baloo 2', cursive;
-
     color: #4380a2;
 
-    font-size: clamp(55px, 10vw, 100px);
+    font-family: 'Baloo 2', cursive;
+
+    font-size:
+        clamp(55px, 10vw, 100px);
 
     line-height: .95;
 
@@ -302,23 +307,20 @@ main {
 }
 
 
-.hero h1 span {
-    display: inline-block;
-}
-
-
 .hero h1 .name {
     display: block;
+
+    margin-top: 8px;
 
     color: #78b5d1;
 
     font-size: .72em;
-
-    margin-top: 8px;
 }
 
 
 .hero h1 span:last-child {
+    display: inline-block;
+
     animation:
         cakeBounce 2s ease-in-out infinite;
 }
@@ -350,6 +352,8 @@ main {
         softPulse 2.5s ease-in-out infinite;
 }
 
+
+/* Hero animations */
 
 @keyframes titleFloat {
 
@@ -419,9 +423,9 @@ main {
 }
 
 
-/* =========================================
+/* =====================================================
    BUTTONS
-========================================= */
+===================================================== */
 
 .surprise-btn,
 .gift-btn,
@@ -443,7 +447,8 @@ main {
 
 .surprise-btn {
 
-    padding: 15px 28px;
+    padding:
+        15px 28px;
 
     border-radius: 50px;
 
@@ -468,17 +473,20 @@ main {
 }
 
 
-/* =========================================
+/* =====================================================
    BIRTHDAY CARD
-========================================= */
+===================================================== */
 
 .birthday-card {
 
-    width: min(90%, 650px);
+    width:
+        min(90%, 650px);
 
-    margin: 0 auto 120px;
+    margin:
+        0 auto 120px;
 
-    padding: 55px 45px;
+    padding:
+        55px 45px;
 
     position: relative;
 
@@ -554,19 +562,19 @@ main {
 .gift-section h2,
 .final-message h2 {
 
-    font-family: 'Baloo 2', cursive;
+    margin-bottom: 25px;
 
     color: #4e86a4;
 
-    font-size: 36px;
+    font-family: 'Baloo 2', cursive;
 
-    margin-bottom: 25px;
+    font-size: 36px;
 }
 
 
-/* =========================================
+/* =====================================================
    CAKE
-========================================= */
+===================================================== */
 
 .cake {
 
@@ -576,7 +584,8 @@ main {
 
     position: relative;
 
-    margin: 20px auto 35px;
+    margin:
+        20px auto 35px;
 }
 
 
@@ -730,9 +739,9 @@ main {
 }
 
 
-/* =========================================
-   MESSAGE
-========================================= */
+/* =====================================================
+   BIRTHDAY MESSAGE
+===================================================== */
 
 .message {
 
@@ -756,9 +765,9 @@ main {
 }
 
 
-/* =========================================
-   INTERACTIVE LETTER
-========================================= */
+/* =====================================================
+   LETTER SECTION
+===================================================== */
 
 .letter-section {
 
@@ -772,11 +781,12 @@ main {
 
     justify-content: center;
 
-    padding: 100px 20px;
+    padding:
+        100px 20px;
 
     text-align: center;
 
-    overflow: hidden;
+    overflow: visible;
 }
 
 
@@ -811,9 +821,9 @@ main {
 }
 
 
-/* =========================================
-   ENVELOPE CONTAINER
-========================================= */
+/* =====================================================
+   ENVELOPE
+===================================================== */
 
 .envelope-wrapper {
 
@@ -824,6 +834,8 @@ main {
     position: relative;
 
     perspective: 1200px;
+
+    overflow: visible;
 }
 
 
@@ -840,6 +852,14 @@ main {
     transform-style:
         preserve-3d;
 
+    /*
+       Sangat penting:
+       saat tertutup, bagian surat yang
+       berada di luar amplop akan dipotong.
+    */
+
+    overflow: hidden;
+
     transition:
         transform .4s ease;
 }
@@ -852,9 +872,22 @@ main {
 }
 
 
-/* =========================================
+/*
+   Saat dibuka, overflow harus visible
+   supaya surat bisa keluar sepenuhnya.
+*/
+
+.envelope.open {
+
+    overflow: visible;
+
+    margin-bottom: 430px;
+}
+
+
+/* =====================================================
    ENVELOPE BACK
-========================================= */
+===================================================== */
 
 .envelope-back {
 
@@ -872,47 +905,56 @@ main {
 }
 
 
-/* =========================================
+/* =====================================================
    LETTER PAPER
-========================================= */
+===================================================== */
 
 .letter-paper {
 
     position: absolute;
 
-    width: 290px;
+    width: 340px;
 
-    height: 370px;
+    height: 440px;
 
-    left: 20px;
+    left: 50%;
 
     bottom: 0;
 
     z-index: 2;
 
-    padding: 30px 25px;
+    padding:
+        30px 28px;
 
-    background: #ffffff;
+    background:
+        #ffffff;
 
-    border-radius: 8px;
-
-    overflow-y: auto;
-
-    box-shadow:
-        0 10px 30px rgba(50,110,140,.15);
+    border-radius: 12px;
 
     /*
-       SURAT TERSEMBUNYI
-       DI DALAM AMPLOP
+       Tidak ada scrollbar.
+    */
+
+    overflow: hidden;
+
+    box-shadow:
+        0 15px 45px rgba(50,110,140,.18);
+
+    /*
+       Saat tertutup,
+       surat berada di belakang amplop.
     */
 
     transform:
-        translateY(145px);
+        translateX(-50%)
+        translateY(200px);
 
     transition:
         transform 1s cubic-bezier(.2,.8,.2,1);
 }
 
+
+/* Garis dekorasi kertas */
 
 .letter-paper::before {
 
@@ -922,63 +964,73 @@ main {
 
     inset: 0;
 
+    z-index: 0;
+
     pointer-events: none;
 
-    opacity: .25;
+    opacity: .22;
 
     background:
         repeating-linear-gradient(
             0deg,
             transparent,
-            transparent 28px,
-            #d9eef7 29px
+            transparent 29px,
+            #d9eef7 30px
         );
 }
 
+
+/* =====================================================
+   LETTER CONTENT
+===================================================== */
 
 .letter-content {
 
     position: relative;
 
     z-index: 2;
+
+    text-align: center;
 }
 
 
 .letter-icon {
 
-    font-size: 32px;
+    margin-bottom: 5px;
 
-    margin-bottom: 8px;
+    font-size: 32px;
 }
 
 
 .letter-content h2 {
 
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 
     color: #558aa6;
 
     font-family: 'Baloo 2', cursive;
 
-    font-size: 25px;
+    font-size: 26px;
+
+    line-height: 1.15;
 }
 
 
 .letter-content p {
 
-    margin-bottom: 14px;
+    margin-bottom: 11px;
 
     color: #668ea3;
 
-    font-size: 13px;
+    font-size: 12.5px;
 
-    line-height: 1.8;
+    line-height: 1.55;
 }
 
 
 .letter-signature {
 
-    margin-top: 25px;
+    margin-top: 16px;
 
     color: #75a9c3;
 
@@ -986,19 +1038,19 @@ main {
 
     font-size: 18px;
 
-    line-height: 1.4;
+    line-height: 1.3;
 }
 
 
 .letter-signature span {
 
-    font-size: 14px;
+    font-size: 13px;
 }
 
 
-/* =========================================
+/* =====================================================
    ENVELOPE FRONT
-========================================= */
+===================================================== */
 
 .envelope-front {
 
@@ -1024,9 +1076,9 @@ main {
 }
 
 
-/* =========================================
+/* =====================================================
    ENVELOPE FLAP
-========================================= */
+===================================================== */
 
 .envelope-flap {
 
@@ -1060,9 +1112,9 @@ main {
 }
 
 
-/* =========================================
+/* =====================================================
    ENVELOPE SEAL
-========================================= */
+===================================================== */
 
 .envelope-seal {
 
@@ -1102,15 +1154,9 @@ main {
 }
 
 
-/* =========================================
-   ENVELOPE OPEN STATE
-========================================= */
-
-.envelope.open {
-
-    margin-bottom: 210px;
-}
-
+/* =====================================================
+   OPEN ENVELOPE
+===================================================== */
 
 .envelope.open .envelope-flap {
 
@@ -1121,10 +1167,16 @@ main {
 
 .envelope.open .letter-paper {
 
-    transform:
-        translateY(-190px);
+    /*
+       Surat keluar jauh ke atas
+       dan berada di depan amplop.
+    */
 
-    z-index: 3;
+    transform:
+        translateX(-50%)
+        translateY(-410px);
+
+    z-index: 20;
 }
 
 
@@ -1138,9 +1190,9 @@ main {
 }
 
 
-/* =========================================
+/* =====================================================
    LETTER HINT
-========================================= */
+===================================================== */
 
 .letter-hint {
 
@@ -1170,9 +1222,9 @@ main {
 }
 
 
-/* =========================================
+/* =====================================================
    GIFT SECTION
-========================================= */
+===================================================== */
 
 .gift-section {
 
@@ -1186,7 +1238,8 @@ main {
 
     justify-content: center;
 
-    padding: 50px 20px;
+    padding:
+        50px 20px;
 
     text-align: center;
 }
@@ -1202,13 +1255,16 @@ main {
 
 .gift-btn {
 
-    padding: 16px 30px;
+    padding:
+        16px 30px;
 
     border-radius: 50px;
 
-    background: #8bc9e6;
+    background:
+        #8bc9e6;
 
-    color: #ffffff;
+    color:
+        #ffffff;
 
     font-size: 16px;
 
@@ -1217,17 +1273,20 @@ main {
 }
 
 
-/* =========================================
+/* =====================================================
    FINAL MESSAGE
-========================================= */
+===================================================== */
 
 .final-message {
 
-    width: min(90%, 650px);
+    width:
+        min(90%, 650px);
 
-    margin: 0 auto 100px;
+    margin:
+        0 auto 100px;
 
-    padding: 60px 30px;
+    padding:
+        60px 30px;
 
     text-align: center;
 
@@ -1281,9 +1340,9 @@ main {
 }
 
 
-/* =========================================
+/* =====================================================
    POPUP
-========================================= */
+===================================================== */
 
 .popup {
 
@@ -1327,15 +1386,18 @@ main {
 
 .popup-box {
 
-    width: min(90%, 430px);
+    width:
+        min(90%, 430px);
 
-    padding: 45px 30px;
+    padding:
+        45px 30px;
 
     position: relative;
 
     text-align: center;
 
-    background: #ffffff;
+    background:
+        #ffffff;
 
     border-radius: 30px;
 
@@ -1428,19 +1490,34 @@ main {
 
     margin-top: 20px;
 
-    padding: 12px 25px;
+    padding:
+        12px 25px;
 
     border-radius: 50px;
 
-    background: #9ed8ef;
+    background:
+        #9ed8ef;
 
-    color: #ffffff;
+    color:
+        #ffffff;
 }
 
 
-/* =========================================
+/* =====================================================
    CONFETTI
-========================================= */
+===================================================== */
+
+#confetti-container {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 200;
+
+    pointer-events: none;
+}
+
 
 .confetti {
 
@@ -1460,6 +1537,7 @@ main {
 @keyframes confettiFall {
 
     to {
+
         transform:
             translateY(110vh)
             rotate(720deg);
@@ -1469,25 +1547,9 @@ main {
 }
 
 
-/* =========================================
-   FLOATING HEARTS
-========================================= */
-
-#confetti-container {
-
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: 200;
-}
-
-
-/* =========================================
+/* =====================================================
    MOBILE
-========================================= */
+===================================================== */
 
 @media (max-width: 600px) {
 
@@ -1526,6 +1588,8 @@ main {
     }
 
 
+    /* Birthday card */
+
     .birthday-card {
 
         width: 92%;
@@ -1545,10 +1609,20 @@ main {
     }
 
 
+    /* Letter */
+
     .letter-section {
+
+        min-height: 100vh;
 
         padding:
             80px 15px;
+    }
+
+
+    .letter-intro p {
+
+        font-size: 21px;
     }
 
 
@@ -1562,33 +1636,140 @@ main {
 
     .letter-paper {
 
-        width: 255px;
+        width: 285px;
 
-        height: 350px;
+        height: 400px;
 
-        left: 17px;
+        left: 50%;
+
+        padding:
+            25px 22px;
 
         transform:
-            translateY(145px);
+            translateX(-50%)
+            translateY(180px);
+    }
+
+
+    .letter-content h2 {
+
+        font-size: 23px;
+    }
+
+
+    .letter-content p {
+
+        font-size: 11.5px;
+
+        line-height: 1.5;
+
+        margin-bottom: 9px;
+    }
+
+
+    .letter-signature {
+
+        margin-top: 13px;
+
+        font-size: 16px;
+    }
+
+
+    .letter-signature span {
+
+        font-size: 12px;
     }
 
 
     .envelope.open {
 
-        margin-bottom: 200px;
+        margin-bottom: 390px;
     }
 
 
     .envelope.open .letter-paper {
 
         transform:
-            translateY(-180px);
+            translateX(-50%)
+            translateY(-370px);
+
+        z-index: 20;
     }
 
+
+    /* Clouds */
 
     .cloud {
 
         opacity: .4;
     }
 
+
+    /* Final section */
+
+    .final-message {
+
+        width: 92%;
+
+        padding:
+            45px 22px;
+    }
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .hero h1 {
+
+        font-size: 50px;
+    }
+
+
+    .envelope-wrapper {
+
+        width: 270px;
+
+        height: 190px;
+    }
+
+
+    .letter-paper {
+
+        width: 265px;
+
+        height: 380px;
+
+        padding:
+            22px 18px;
+    }
+
+
+    .letter-content h2 {
+
+        font-size: 21px;
+    }
+
+
+    .letter-content p {
+
+        font-size: 10.8px;
+    }
+
+
+    .envelope.open {
+
+        margin-bottom: 370px;
+    }
+
+
+    .envelope.open .letter-paper {
+
+        transform:
+            translateX(-50%)
+            translateY(-350px);
+    }
 }
