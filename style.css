@@ -824,38 +824,20 @@ main {
 ========================================================= */
 
 .envelope-wrapper {
-
     width: 330px;
-
     height: 230px;
 
     position: relative;
 
-    /*
-       Wrapper diberi stacking context sendiri.
-       Ketika surat dibuka, wrapper naik
-       ke layer paling depan.
-    */
-
-    z-index: 10;
+    z-index: 20;
 
     perspective: 1200px;
 
     overflow: visible;
 
-    transition:
-        margin .8s ease;
-}
+    margin: 0 auto;
 
-
-/*
-   Saat surat dibuka,
-   SELURUH wrapper naik ke layer depan.
-*/
-
-.envelope-wrapper.open-wrapper {
-
-    z-index: 100;
+    transition: none;
 }
 
 
@@ -864,52 +846,23 @@ main {
 ========================================================= */
 
 .envelope {
-
     width: 100%;
-
     height: 100%;
 
     position: relative;
 
     cursor: pointer;
 
-    transform-style:
-        preserve-3d;
-
-    /*
-       DEFAULT tertutup.
-    */
-
-    overflow: hidden;
-
-    transition:
-        transform .4s ease;
-}
-
-
-.envelope:hover {
-
-    transform:
-        translateY(-6px);
-}
-
-
-/*
-   Ketika open:
-   overflow WAJIB visible.
-*/
-
-.envelope.open {
-
     overflow: visible;
 
-    /*
-       Jangan lagi mengandalkan
-       margin untuk mengangkat surat.
-    */
+    transform-style: preserve-3d;
 
-    transform:
-        translateY(0);
+    transition:
+        transform .35s ease;
+}
+
+.envelope:hover {
+    transform: translateY(-4px);
 }
 
 
@@ -918,7 +871,6 @@ main {
 ========================================================= */
 
 .envelope-back {
-
     position: absolute;
 
     inset: 0;
@@ -928,14 +880,14 @@ main {
     background:
         linear-gradient(
             180deg,
-            #b8e1f1,
-            #a9d9ed
+            #b9e2f2,
+            #a7d8eb
         );
 
     border-radius: 10px;
 
     box-shadow:
-        0 20px 50px rgba(60,125,155,.20);
+        0 20px 45px rgba(60,125,155,.20);
 }
 
 
@@ -944,90 +896,67 @@ main {
 ========================================================= */
 
 .letter-paper {
-
     position: absolute;
 
-    /*
-       Ukuran dibuat lebih tinggi
-       supaya surat dapat dibaca
-       tanpa scrollbar.
-    */
-
     width: 350px;
-
     height: 500px;
 
     left: 50%;
+    bottom: 15px;
 
-    bottom: 0;
+    z-index: 5;
 
-    /*
-       Ini adalah layer terpenting.
-    */
+    padding: 30px;
 
-    z-index: 50;
+    background: #ffffff;
 
-    padding:
-        30px 30px;
+    border-radius: 10px;
 
-    background:
-        #ffffff;
-
-    border-radius: 12px;
+    box-shadow:
+        0 15px 40px rgba(55,115,145,.18);
 
     /*
-       TIDAK ADA SCROLLBAR.
+       Tidak ada scrollbar.
     */
 
     overflow: hidden;
 
-    box-shadow:
-        0 20px 55px rgba(50,110,140,.22);
-
     /*
-       Posisi ketika amplop tertutup.
+       CLOSED STATE
+
+       Surat berada di dalam amplop.
     */
 
     transform:
         translateX(-50%)
-        translateY(235px);
+        translateY(220px);
 
     transition:
         transform 1s cubic-bezier(.16,.84,.25,1);
-
-    /*
-       Jangan biarkan elemen lain
-       memotong surat.
-    */
-
-    isolation: isolate;
 }
 
 
-/* =========================================================
-   PAPER LINES
-========================================================= */
+/* garis-garis lembut pada kertas */
 
 .letter-paper::before {
-
     content: "";
 
     position: absolute;
 
     inset: 0;
 
-    z-index: -1;
+    z-index: 0;
 
     pointer-events: none;
 
-    opacity: .20;
+    opacity: .25;
 
     background:
         repeating-linear-gradient(
             to bottom,
             transparent 0,
             transparent 29px,
-            #d9eef7 30px
+            #d8edf6 30px
         );
 }
 
@@ -1037,7 +966,6 @@ main {
 ========================================================= */
 
 .letter-content {
-
     position: relative;
 
     z-index: 2;
@@ -1047,17 +975,13 @@ main {
     text-align: center;
 }
 
-
 .letter-icon {
+    margin-bottom: 4px;
 
-    margin-bottom: 3px;
-
-    font-size: 29px;
+    font-size: 28px;
 }
 
-
 .letter-content h2 {
-
     margin-bottom: 15px;
 
     color: #558aa6;
@@ -1069,9 +993,7 @@ main {
     line-height: 1.1;
 }
 
-
 .letter-content p {
-
     margin-bottom: 10px;
 
     color: #668ea3;
@@ -1081,9 +1003,7 @@ main {
     line-height: 1.5;
 }
 
-
 .letter-signature {
-
     margin-top: 15px;
 
     color: #75a9c3;
@@ -1095,9 +1015,7 @@ main {
     line-height: 1.25;
 }
 
-
 .letter-signature span {
-
     font-size: 12px;
 }
 
@@ -1107,19 +1025,14 @@ main {
 ========================================================= */
 
 .envelope-front {
-
     position: absolute;
 
     inset: 0;
 
-    /*
-       Front harus DI BAWAH surat.
-    */
-
     z-index: 10;
 
     background:
-        #b9e2f2;
+        #b8dfef;
 
     clip-path:
         polygon(
@@ -1131,28 +1044,6 @@ main {
         );
 
     border-radius: 10px;
-
-    transition:
-        opacity .4s ease;
-}
-
-
-/*
-   Ketika surat sudah keluar,
-   bagian atas/front amplop dibuat
-   transparan terhadap area surat.
-
-   Badan bawah amplop tetap terlihat.
-*/
-
-.envelope.open .envelope-front {
-
-    /*
-       Surat sekarang ada di atas,
-       jadi front tetap berada di bawahnya.
-    */
-
-    z-index: 10;
 }
 
 
@@ -1161,22 +1052,13 @@ main {
 ========================================================= */
 
 .envelope-flap {
-
     position: absolute;
 
     top: 0;
-
     left: 0;
 
     width: 100%;
-
     height: 120px;
-
-    /*
-       Flap berada di atas saat tertutup,
-       tetapi tetap di bawah surat ketika
-       surat sudah keluar.
-    */
 
     z-index: 20;
 
@@ -1190,11 +1072,10 @@ main {
             50% 100%
         );
 
-    transform-origin:
-        top center;
+    transform-origin: top center;
 
     transition:
-        transform .9s cubic-bezier(.2,.8,.2,1);
+        transform .8s cubic-bezier(.2,.8,.2,1);
 }
 
 
@@ -1203,23 +1084,19 @@ main {
 ========================================================= */
 
 .envelope-seal {
-
     position: absolute;
 
     top: 108px;
-
     left: 50%;
 
     z-index: 30;
 
     width: 48px;
-
     height: 48px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     border-radius: 50%;
@@ -1236,7 +1113,7 @@ main {
 
     transition:
         opacity .4s ease,
-        transform .5s ease;
+        transform .4s ease;
 }
 
 
@@ -1244,34 +1121,29 @@ main {
    OPEN STATE
 ========================================================= */
 
-
 /*
-   FLAP membuka.
+   Saat dibuka:
+   surat naik keluar dari amplop.
 */
 
-.envelope.open .envelope-flap {
-
+.envelope.open .letter-paper {
     transform:
-        rotateX(180deg);
+        translateX(-50%)
+        translateY(-300px);
+
+    z-index: 50;
 }
 
 
 /*
-   INI BAGIAN PALING PENTING.
-
-   Surat:
-   - naik jauh
-   - menjadi layer tertinggi
-   - tidak terpotong
+   Flap membuka.
 */
 
-.envelope.open .letter-paper {
-
+.envelope.open .envelope-flap {
     transform:
-        translateX(-50%)
-        translateY(-430px);
+        rotateX(180deg);
 
-    z-index: 100;
+    z-index: 15;
 }
 
 
@@ -1280,30 +1152,29 @@ main {
 */
 
 .envelope.open .envelope-seal {
-
     opacity: 0;
 
     transform:
         translateX(-50%)
-        scale(.45);
+        scale(.4);
 }
 
 
-/* =========================================================
-   OPENED ENVELOPE SIZE
-========================================================= */
+/*
+   Front amplop tetap terlihat.
+*/
 
-.envelope-wrapper:has(.envelope.open) {
+.envelope.open .envelope-front {
+    z-index: 10;
+}
 
-    /*
-       Memberi ruang vertikal
-       agar surat tidak bertabrakan
-       dengan elemen lain.
-    */
 
-    margin-top: 430px;
+/*
+   Back amplop tetap terlihat.
+*/
 
-    margin-bottom: 80px;
+.envelope.open .envelope-back {
+    z-index: 1;
 }
 
 
@@ -1312,7 +1183,6 @@ main {
 ========================================================= */
 
 .letter-hint {
-
     margin-top: 28px;
 
     color: #78a5b9;
@@ -1326,24 +1196,129 @@ main {
 }
 
 
-.envelope.open ~ .letter-hint {
+/*
+   Kalau surat sudah dibuka,
+   tulisan "Tap the envelope..." hilang.
+*/
 
+.envelope.open ~ .letter-hint {
     opacity: 0;
 }
 
 
-@keyframes hintPulse {
+/* =========================================================
+   MOBILE
+========================================================= */
 
-    0%,
-    100% {
-        opacity: .45;
+@media (max-width: 600px) {
+
+    .envelope-wrapper {
+        width: 290px;
+        height: 200px;
     }
 
-    50% {
-        opacity: 1;
+    .letter-paper {
+        width: 285px;
+        height: 420px;
+
+        padding:
+            25px 22px;
+
+        bottom: 10px;
+
+        transform:
+            translateX(-50%)
+            translateY(190px);
+    }
+
+    .letter-content h2 {
+        font-size: 23px;
+
+        margin-bottom: 12px;
+    }
+
+    .letter-content p {
+        font-size: 11px;
+
+        line-height: 1.48;
+
+        margin-bottom: 8px;
+    }
+
+    .letter-signature {
+        margin-top: 12px;
+
+        font-size: 16px;
+    }
+
+    .letter-signature span {
+        font-size: 11px;
+    }
+
+    /*
+       Mobile:
+       surat naik lebih sedikit agar
+       amplop tetap terlihat.
+    */
+
+    .envelope.open .letter-paper {
+        transform:
+            translateX(-50%)
+            translateY(-255px);
+
+        z-index: 50;
+    }
+
+    .envelope-flap {
+        height: 105px;
+    }
+
+    .envelope-seal {
+        top: 94px;
+
+        width: 43px;
+        height: 43px;
+
+        font-size: 18px;
     }
 }
 
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .envelope-wrapper {
+        width: 270px;
+        height: 190px;
+    }
+
+    .letter-paper {
+        width: 265px;
+        height: 395px;
+
+        padding:
+            22px 18px;
+    }
+
+    .letter-content h2 {
+        font-size: 21px;
+    }
+
+    .letter-content p {
+        font-size: 10.3px;
+
+        line-height: 1.45;
+    }
+
+    .envelope.open .letter-paper {
+        transform:
+            translateX(-50%)
+            translateY(-235px);
+    }
+}
 
 /* =========================================================
    GIFT SECTION
