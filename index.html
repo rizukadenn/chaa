@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday! 💙</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background decorations -->
+    <div class="sky">
+        <span class="star star1">✦</span>
+        <span class="star star2">✧</span>
+        <span class="star star3">★</span>
+        <span class="heart heart1">♡</span>
+        <span class="heart heart2">♥</span>
+        <span class="heart heart3">♡</span>
+    </div>
+
+    <!-- Clouds -->
+    <div class="cloud cloud1">☁️</div>
+    <div class="cloud cloud2">☁️</div>
+    <div class="cloud cloud3">☁️</div>
+
+    <main>
+
+        <!-- Opening -->
+        <section class="hero">
+
+            <div class="small-text">
+                a little birthday surprise for you 🩵
+            </div>
+
+            <h1>
+                Happy Birthday!
+                <span>🎂</span>
+            </h1>
+
+            <p class="subtitle">
+                Today is a special day because
+                <br>
+                someone very special was born. ✨
+            </p>
+
+            <button class="surprise-btn" onclick="openSurprise()">
+                💌 Open Your Surprise
+            </button>
+
+        </section>
+
+
+        <!-- Birthday card -->
+        <section class="birthday-card" id="birthdayCard">
+
+            <div class="card-decoration">🦋</div>
+
+            <h2>
+                For Someone Special 💙
+            </h2>
+
+            <div class="cake">
+                <div class="flame">🔥</div>
+
+                <div class="candle"></div>
+
+                <div class="cake-top"></div>
+
+                <div class="cake-body">
+                    <span>♡</span>
+                    <span>♡</span>
+                    <span>♡</span>
+                </div>
+
+                <div class="cake-plate"></div>
+            </div>
+
+            <p class="message">
+                Semoga hari ini dipenuhi dengan banyak senyum,
+                tawa, kebahagiaan, dan hal-hal kecil yang membuat
+                hati terasa hangat. 🫧
+            </p>
+
+            <p class="message">
+                Semoga semua impianmu perlahan menjadi kenyataan.
+                Jangan lupa untuk selalu percaya bahwa kamu
+                pantas mendapatkan hal-hal indah. 💙
+            </p>
+
+            <div class="signature">
+                With lots of love ♡
+            </div>
+
+        </section>
+
+
+        <!-- Gift -->
+        <section class="gift-section">
+
+            <h2>One More Thing... 🎁</h2>
+
+            <p>
+                There might be a little surprise waiting for you.
+            </p>
+
+            <button class="gift-btn" onclick="openGift()">
+                🎁 Tap the Gift
+            </button>
+
+        </section>
+
+
+        <!-- Final message -->
+        <section class="final-message" id="finalMessage">
+
+            <div class="sparkle">✨</div>
+
+            <h2>
+                You deserve all the happiness in the world! 🩵
+            </h2>
+
+            <p>
+                Happy Birthday once again!
+                <br>
+                Keep smiling, keep dreaming,
+                and keep being you. 🌷
+            </p>
+
+            <div class="final-hearts">
+                ♡ 💙 ♡ 🩵 ♡
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Popup -->
+    <div class="popup" id="popup">
+
+        <div class="popup-box">
+
+            <button class="close-btn" onclick="closePopup()">
+                ×
+            </button>
+
+            <div class="popup-icon">
+                🎁
+            </div>
+
+            <h2>
+                Surprise! 💙
+            </h2>
+
+            <p>
+                Your biggest gift is simply being you. 🫧
+            </p>
+
+            <p>
+                Semoga tahun ini menjadi salah satu
+                tahun terbaik dalam hidupmu. ✨
+            </p>
+
+            <button onclick="closePopup()" class="okay-btn">
+                Awww 🥹💙
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Confetti container -->
+    <div id="confetti-container"></div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
