@@ -11,15 +11,20 @@ function openSurprise() {
 
     const card = document.getElementById("birthdayCard");
 
-    if (card) {
+    if (!card) return;
+
+    // Tampilkan birthday card
+    card.classList.add("show");
+
+    // Beri sedikit jeda agar animasi terasa halus
+    setTimeout(() => {
 
         card.scrollIntoView({
             behavior: "smooth",
             block: "center"
         });
 
-    }
-
+    }, 150);
 }
 
 
