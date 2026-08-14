@@ -181,3 +181,33 @@ function createFloatingHeart() {
 /* Create a new floating heart periodically */
 
 setInterval(createFloatingHeart, 1800);
+// =========================
+// INTERACTIVE LETTER
+// =========================
+
+const envelope =
+    document.getElementById("envelope");
+
+const letterHint =
+    document.getElementById("letterHint");
+
+
+envelope.addEventListener("click", function () {
+
+    this.classList.toggle("open");
+
+    if (this.classList.contains("open")) {
+
+        letterHint.innerHTML =
+            "♡ Your little letter is open ♡";
+
+        createConfetti(25);
+
+    } else {
+
+        letterHint.innerHTML =
+            "✦ Tap the envelope to open ✦";
+
+    }
+
+});
